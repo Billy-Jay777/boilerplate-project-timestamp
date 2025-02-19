@@ -24,15 +24,14 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get("/api/:date?", (req, res) => {
-	const { date } = req.params;
+	const date_string = req.params.date;
 	let parsedDate;
-	console.log(date);
-	if (!date) {
+	if (!date_string) {
 		parsedDate = new Date();
-	} else if (/^\d+$/.test(date)) {
-		parsedDate = new Date(parseInt(date));
+	} else if (/^\d+$/.test(date_string)) {
+		parsedDate = new Date(parseInt(date_string));
 	} else {
-		parsedDate = new Date(date);
+		parsedDate = new Date(date_string);
 	}
 
 	if (isNaN(parsedDate.getTime())) {
