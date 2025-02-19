@@ -26,7 +26,7 @@ app.get("/api/hello", function (req, res) {
 app.get("/api/:date?", (req, res) => {
 	const dateString = req.params.date;
 	console.log(dateString);
-	res.json({ error: "Invalid date" });
+	res.json({ error: "Invalid Date" });
 });
 
 // Listen on port set in environment variable or default to 3000
